@@ -20,11 +20,11 @@ inputs:
   github-user:
     description: 'Github user for the `neil` tool'
     required: false
-    default: 'ndmitchell'
+    default: 'shayne-fletcher'
   branch:
     description: 'branch for the `neil` tool'
     required: false
-    default: 'master'
+    default: 'update-badge-sf'
 runs:
   using: "composite"
   steps:
