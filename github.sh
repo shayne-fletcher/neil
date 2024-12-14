@@ -70,7 +70,7 @@ retry cabal v2-build --only-dependencies --enable-tests --haddock-hoogle $CABALF
 
 # Install the neil tool
 retry git clone -b $BRANCH --depth=1 "https://github.com/$GITHUB_USER/neil" .neil
-(cd .neil && retry cabal v2-install --allow-newer --flags=small --installdir=. --install-method=copy --overwrite-policy=always)
+(cd .neil && retry cabal v2-install neil --allow-newer --flags=small --installdir=. --install-method=copy --overwrite-policy=always)
 
 if [ "$MAKE_RELEASE" = "true" ]; then
     .neil/neil bin
@@ -86,7 +86,7 @@ else
         # We want to run travis.hs with the extra package in scope
         # Best way I can do that is by hijacking the Main.hs of .neil
         cp travis.hs .neil/src/Main.hs
-        (cd .neil && cabal v2-install --allow-newer --flags=small --installdir=. --install-method=copy --overwrite-policy=always)
+        (cd .neil && cabal v2-install neil --allow-newer --flags=small --installdir=. --install-method=copy --overwrite-policy=always)
         .neil/neil
     fi
 
